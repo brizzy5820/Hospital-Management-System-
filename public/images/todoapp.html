@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div style="display: flex; justify-content: center; margin-top: 20px;">
+    <div style="padding: 10px; background-color: gray;">
+      <input id="todo" style="border:none;border-radius: 10px; padding: 5px; width: 100%;" placeholder="Type your todo here" />
+      <button onclick="handleTodo()" style="background-color: lightgreen; border: none; display: block; margin-top: 10px; border-radius: 10px; color: white; padding: 10px; width: 100%;">ADD TODO</button>
+      <div style="background-color: white; padding: 5px; border-radius: 10px; margin-top: 20px;">
+         <div style="background-color: gray; padding: 5px; border-radius: 10px;">
+         <div style="background-color: white; padding: 5px; border-radius: 10px;">
+            <div id="show">
+            
+                 
+            </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  { }
+  <script>
+      let todoData=[];
+      function handleTodo() {
+        todoData.push(todo.value)
+        show.innerHTML=""
+        
+          
+            for (let i = 0; i < todoData.length; i++) {
+show.innerHTML+= `<div style="background-color: gray; padding: 5px; border-radius: 10PX; margin-bottom: 10px;">
+     <input type="checkbox"/>  ${i+1}. ${todoData[i]}  <button onclick="handleDel(${i})">Del</button> <button >Edit</button>
+     </div> `
+
+         }
+       
+        todo.value=""
+      }
+
+      function handleDel(i) {
+         todoData.splice(i,1)
+         show.innerHTML="";
+         for (let i = 0; i < todoData.length; i++) {
+show.innerHTML+= `<div style="background-color: gray; padding: 5px; border-radius: 10PX; margin-bottom: 10px;">
+     <input type="checkbox"/>  ${i+1}. ${todoData[i]}  <button onclick="handleDel(${i})">Del</button > <button oncick=eDit()>Edit</button>
+     </div> `
+
+         }
+         
+      }
+      function eDit(ind) { 
+        todo.value=todoData[ind]
+        alert("hello")
+        for (let i = 0; i < todoData.length; i++) {
+show.innerHTML+= `<div style="background-color: gray; padding: 5px; border-radius: 10PX; margin-bottom: 10px;">
+     <input type="checkbox"/>  ${i+1}. ${todoData[i]}  <button onclick="handleDel(${i})">Del</button> <button oncick=eDit('$todoData{i}')>Edit</button>
+     </div> `
+
+         }
+      }
+  </script>
+  
+</body>
+</html>

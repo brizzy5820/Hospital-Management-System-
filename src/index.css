@@ -1,0 +1,443 @@
+ :root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --secondary: #0f172a;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --radius: 10px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+#root, .body {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  color: #0f172a;
+}
+body{
+ background:url('images/alexandr-podvalny-tE7_jvK-_YU-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(7px);
+}
+/* ================= SIDEBAR ================= */
+aside {
+  width: 220px;
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 1.2rem;
+  position: fixed;
+  height: 100% !important;
+}
+
+aside h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+aside ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+aside li {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+header button.active,
+aside li.active {
+  background-color: #1f488f;
+}
+aside li img{
+  width: 20px;
+}
+aside li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ================= MAIN ================= */
+main {
+  margin-left: 220px;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+/* ================= CONTAINERS ================= */
+.container {
+  background: var(--card);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* ================= FORMS ================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.namespan {
+  display: flex;
+  gap: 10px;
+}
+
+input,
+select {
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 15px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* ================= BUTTONS ================= */
+button {
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background: var(--success);
+}
+.btn-success:hover{
+  background: #166534;
+}
+.btn-danger {
+  background: var(--danger);
+}
+.btn-danger:hover{
+  background: #7a1616;
+}
+
+/* ================= DASHBOARD ================= */
+.stats-grid {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-weight: 450;
+  color: rgb(6, 5, 5);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+}
+
+/* ================= TABLE ================= */
+.tablediv {
+  overflow-x: auto;
+  border-radius: var(--radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+tr:hover td {
+  background: #f8fafc;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+/* ================= ALERTS ================= */
+.alert {
+  padding: 14px;
+  border-radius: var(--radius);
+  margin-top: 15px;
+}
+
+.alert-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.alert-info {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+/* ================= MODAL ================= */
+#editModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+#editModal .container {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* ================= UTIL ================= */
+.hidden {
+  display: none;
+}
+
+/* ================= EDIT MODAL (FIXED) ================= */
+#editModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: none; /* IMPORTANT */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+#editModal.show {
+  display: flex;
+}
+
+#editModal .container {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 0; /* remove inline margin */
+}
+/* ================= SIDEBAR HEADER ================= */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-btn {
+  display: none;
+  /* background: var(--primary); */
+  color: white;
+  border: none;
+  /* padding: 10px 14px; */
+  font-size: 15px;
+  border-radius: var(--radius);
+  /* margin-bottom: 15px; */
+}
+
+/* ================= OVERLAY ================= */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: none;
+  z-index: 2000;
+}
+
+#overlay.show {
+  display: block;
+}
+/* ================= MOBILE HEADER ================= */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary);
+  color: white;
+  padding: 12px 12px;
+  z-index: 1100;
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-header nav {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-header button {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 10px;
+  font-size: 14px;
+}
+.himg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.welcomeSection{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+}
+.banner{
+  width: 100%;
+  display: none;
+   height:25%;
+}
+.banner img{
+  width: 100%;
+   height: 100%;
+   border-radius: 3px;
+     object-fit: cover;
+}
+.inputs{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.inputs button{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.statImg{
+  width: 50px;
+  height: 50px;
+}
+/* ================= MOBILE ================= */
+@media (max-width: 767px) {
+.menu-btn{
+  display: none;
+}
+.banner{
+  display: flex;
+}
+.welcomeSection{
+    height: 100vh;
+}
+body{
+  background: var(--bg);
+}
+  aside ul {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 0.5rem;
+    padding-top: 70px;
+  }
+
+  .namespan {
+    flex-direction: column;
+  }
+.stat-card{
+    display: flex;
+  align-items: center;
+  gap: 12px;
+}
+  table {
+    min-width: 800px;
+  }
+    .menu-btn {
+    display: inline-block;
+    /* display: none; */
+  }
+
+  aside {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 240px;
+    /* display: none; */
+    height: 100vh;
+    transition: left 0.3s ease;
+      transition: 0.3s ease;
+    z-index: 2000;
+  }
+
+  aside.open {
+    left: 0;
+  }
+  .mobile-header {
+    display: flex;
+  }
+
+}
