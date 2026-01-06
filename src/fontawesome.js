@@ -7,15 +7,18 @@ import {
   faGear,
   faBars,
   faGrip,
+  faBook,
   faUserDoctor,
   faEye,
   faPlus, 
   faRectangleList,
   faAddressCard,
+  faB,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faHouse,
+  faBook,
   faAddressCard,
   faRectangleList,
   faEye,
